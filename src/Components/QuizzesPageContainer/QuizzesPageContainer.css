@@ -22,6 +22,10 @@
   transition: all 0.2s ease-out;
 }
 
+.quizCard:hover > .summaryWrapper {
+  background-color: red;
+}
+
 .quizCard:hover {
   transform: scale(1.05);
 }
