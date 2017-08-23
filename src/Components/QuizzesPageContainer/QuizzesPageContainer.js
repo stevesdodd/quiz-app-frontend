@@ -1,5 +1,24 @@
 import React, {Component} from 'react'
 
+import './QuizzesPageContainer.css';
+
+const QuizzesGrid = ({quizzes}) => (
+  <div className='quizzesGrid'>
+    {quizzes.map((quiz, index) => {
+      return <Quiz key={index} quizData={quiz}/>
+    })}
+  </div>
+)
+
+const Quiz = ({quizData}) => (
+  <div className='quizCard'>
+    <img className='quizImage' alt='' src={require('../../Images/yoshi.png')}/>
+    <div className='summaryWrapper'>
+      <div className='bold'>{quizData.name}</div>
+      <div className='quizDescription'>{quizData.description}</div>
+    </div>
+  </div>
+)
 
 class QuizzesPageContainer extends Component {
 
@@ -53,14 +72,14 @@ class QuizzesPageContainer extends Component {
   componentDidMount() {
     console.log('mounted');
     this.getQuizData();
-  
   }
 
   render() {
     return (
-      <div>
+      <div className='wrapper'>
         <div>Quizzes page</div>
-        {this.state.loaded ? this.state.quizzes[0].name : ''}
+        <div>Available Quizzes</div>
+        {this.state.loaded ? <QuizzesGrid quizzes={this.state.quizzes} loaded={this.state.loaded}/> : ''}
       </div>
     )
   }

@@ -1,0 +1,60 @@
+.wrapper {
+  padding: 2rem;
+}
+
+.quizzesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.quizCard {
+  flex-basis: calc(20% - 4rem);
+  margin: 0.5rem;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  flex: 1;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-out;
+}
+
+.quizCard:hover > .summaryWrapper {
+  background-color: red;
+}
+
+.quizCard:hover {
+  transform: scale(1.05);
+}
+
+.quizImage {
+  width: 6rem;
+}
+
+.quizDescription {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 6rem;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  font-size: 0.8rem;
+  border-radius: 0.4rem;
+}
+
+.summaryWrapper {
+  background-color: white;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  border-radius: 0.3rem;
+  margin-top: 0.4rem;
+  width: 90%;
+  padding: 0.5rem;
+}
+
+.bold {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
