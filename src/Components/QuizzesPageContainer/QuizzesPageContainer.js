@@ -4,7 +4,9 @@ import './QuizzesPageContainer.css';
 
 const QuizzesGrid = ({quizzes}) => (
   <div>
-    <Quiz quizData={quizzes[0]}/>
+    {quizzes.map((quiz, index) => {
+      return <Quiz key={index} quizData={quiz}/>
+    })}
   </div>
 )
 
