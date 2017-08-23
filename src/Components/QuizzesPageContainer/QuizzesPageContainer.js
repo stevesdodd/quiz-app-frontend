@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 
 import './QuizzesPageContainer.css';
 
+import { Link } from 'react-router-dom'
+
 const QuizzesGrid = ({quizzes}) => (
   <div className='quizzesGrid'>
     {quizzes.map((quiz, index) => {
@@ -11,13 +13,13 @@ const QuizzesGrid = ({quizzes}) => (
 )
 
 const Quiz = ({quizData}) => (
-  <div className='quizCard'>
+  <Link className='quizCard' to='/ham'>
     <img className='quizImage' alt='' src={require('../../Images/yoshi.png')}/>
     <div className='summaryWrapper'>
       <div className='bold'>{quizData.name}</div>
       <div className='quizDescription'>{quizData.description}</div>
     </div>
-  </div>
+  </Link>
 )
 
 class QuizzesPageContainer extends Component {
