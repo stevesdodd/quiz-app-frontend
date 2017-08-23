@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import './QuizzesPageContainer.css';
 
 const QuizzesGrid = ({quizzes}) => (
-  <div>
+  <div className='quizzesGrid'>
     {quizzes.map((quiz, index) => {
       return <Quiz key={index} quizData={quiz}/>
     })}
@@ -11,7 +11,8 @@ const QuizzesGrid = ({quizzes}) => (
 )
 
 const Quiz = ({quizData}) => (
-  <div>
+  <div className='quizCard'>
+    <img className='quizImage' alt='' src={require('../../Images/yoshi.png')}/>
     <div>{quizData.name}</div>
     <div>{quizData.description}</div>
   </div>

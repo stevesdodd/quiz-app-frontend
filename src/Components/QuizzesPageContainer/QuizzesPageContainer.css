@@ -1,3 +1,21 @@
 .wrapper {
   padding: 2rem;
 }
+
+.quizzesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: red;
+  padding: 2rem;
+}
+
+.quizCard {
+  flex-basis: calc(20% - 2rem);
+  margin: 1rem;
+  background-color: green;
+}
+
+.quizImage {
+  width: 10rem;
+  height: 10rem;
+}
