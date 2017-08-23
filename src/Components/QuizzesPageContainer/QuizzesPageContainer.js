@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+import './QuizzesPageContainer.css';
 
 class QuizzesPageContainer extends Component {
 
@@ -58,7 +59,7 @@ class QuizzesPageContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='wrapper'>
         <div>Quizzes page</div>
         {this.state.loaded ? this.state.quizzes[0].name : ''}
       </div>
