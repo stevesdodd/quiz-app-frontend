@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
 
+
 class QuizzesPageContainer extends Component {
 
   constructor() {
     super();
     this.state = {
-      name: ''
+      quizzes: [],
+      loaded: false
     }
-  }
 
-  componentDidMount() {
-    console.log('mounted');
+    this.getQuizData.bind(this);
+  }
+  
+  getQuizData() {
     const main = this;
     fetch(`http://localhost:3000/quizzes`)
     .then( function(response) {
@@ -19,7 +22,6 @@ class QuizzesPageContainer extends Component {
     })
     .then(function(response) {
       setTimeout(function() {
-        console.log('loaded');
       }, 300);
       if (response.ok) {
         return response.json();
@@ -28,12 +30,19 @@ class QuizzesPageContainer extends Component {
       }
     })
     .then( function(data) {
-      console.log(data);
-
       const quizzes = []
-      
+  
+      data.map(item => {
+        quizzes.push({
+          name: item.name,
+          description: item.description,
+        })
+        return quizzes;
+      })
+      console.log(quizzes);
       main.setState({
-        name: data[0].name
+        quizzes: quizzes,
+        loaded: true
       })
     })
     .catch( function(e) {
@@ -41,10 +50,18 @@ class QuizzesPageContainer extends Component {
     });
   }
 
+  componentDidMount() {
+    console.log('mounted');
+    this.getQuizData();
+  
+  }
+
   render() {
     return (
-      <div>Quizzes page {this.state.name}</div>
-
+      <div>
+        <div>Quizzes page</div>
+        {this.state.loaded ? this.state.quizzes[0].name : ''}
+      </div>
     )
   }
 }
