@@ -2,9 +2,16 @@ import React, {Component} from 'react'
 
 class QuizzesPageContainer extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      name: ''
+    }
+  }
+
   componentDidMount() {
     console.log('mounted');
-
+    const main = this;
     fetch(`http://localhost:3000/quizzes`)
     .then( function(response) {
       console.log(response);
@@ -21,7 +28,13 @@ class QuizzesPageContainer extends Component {
       }
     })
     .then( function(data) {
-      console.log('data', data);
+      console.log(data);
+
+      const quizzes = []
+      
+      main.setState({
+        name: data[0].name
+      })
     })
     .catch( function(e) {
       console.log('errors', e)
@@ -30,7 +43,8 @@ class QuizzesPageContainer extends Component {
 
   render() {
     return (
-      <div>Quizzes page</div>
+      <div>Quizzes page {this.state.name}</div>
+
     )
   }
 }
