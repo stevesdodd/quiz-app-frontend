@@ -13,7 +13,7 @@ const QuizzesGrid = ({quizzes}) => (
 )
 
 const Quiz = ({quizData}) => (
-  <Link className='quizCard' to='/ham'>
+  <Link className='quizCard' to={`/quiz/${quizData.id}`}>
     <img className='quizImage' alt='' src={require('../../Images/yoshi.png')}/>
     <div className='summaryWrapper'>
       <div className='bold'>{quizData.name}</div>
@@ -55,6 +55,7 @@ class QuizzesPageContainer extends Component {
   
       data.map(item => {
         quizzes.push({
+          id: item.id,
           name: item.name,
           description: item.description,
         })
