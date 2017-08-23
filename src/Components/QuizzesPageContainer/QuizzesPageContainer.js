@@ -2,6 +2,19 @@ import React, {Component} from 'react'
 
 import './QuizzesPageContainer.css';
 
+const QuizzesGrid = ({quizzes}) => (
+  <div>
+    <Quiz quizData={quizzes[0]}/>
+  </div>
+)
+
+const Quiz = ({quizData}) => (
+  <div>
+    <div>{quizData.name}</div>
+    <div>{quizData.description}</div>
+  </div>
+)
+
 class QuizzesPageContainer extends Component {
 
   constructor() {
@@ -54,14 +67,13 @@ class QuizzesPageContainer extends Component {
   componentDidMount() {
     console.log('mounted');
     this.getQuizData();
-  
   }
 
   render() {
     return (
       <div className='wrapper'>
         <div>Quizzes page</div>
-        {this.state.loaded ? this.state.quizzes[0].name : ''}
+        {this.state.loaded ? <QuizzesGrid quizzes={this.state.quizzes} loaded={this.state.loaded}/> : ''}
       </div>
     )
   }
