@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import QuizzesPageContainer from './QuizzesPageContainer'
+import QuizzesPageContainer from './Components/QuizzesPageContainer/QuizzesPageContainer'
 
 class App extends Component {
   render() {
