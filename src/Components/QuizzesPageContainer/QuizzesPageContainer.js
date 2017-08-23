@@ -13,8 +13,10 @@ const QuizzesGrid = ({quizzes}) => (
 const Quiz = ({quizData}) => (
   <div className='quizCard'>
     <img className='quizImage' alt='' src={require('../../Images/yoshi.png')}/>
-    <div>{quizData.name}</div>
-    <div>{quizData.description}</div>
+    <div className='summaryWrapper'>
+      <div className='bold'>{quizData.name}</div>
+      <div className='quizDescription'>{quizData.description}</div>
+    </div>
   </div>
 )
 
@@ -76,6 +78,7 @@ class QuizzesPageContainer extends Component {
     return (
       <div className='wrapper'>
         <div>Quizzes page</div>
+        <div>Available Quizzes</div>
         {this.state.loaded ? <QuizzesGrid quizzes={this.state.quizzes} loaded={this.state.loaded}/> : ''}
       </div>
     )
