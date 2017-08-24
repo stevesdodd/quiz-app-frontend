@@ -12,7 +12,6 @@
   flex-basis: calc(20% - 4rem);
   margin: 0.5rem;
   background-color: green;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -20,6 +19,9 @@
   flex: 1;
   border-radius: 0.5rem;
   transition: all 0.2s ease-out;
+  text-decoration: none;
+  color: black;
+  display: flex;
 }
 
 .quizCard:hover > .summaryWrapper {
@@ -52,6 +54,8 @@
   margin-top: 0.4rem;
   width: 90%;
   padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .bold {
